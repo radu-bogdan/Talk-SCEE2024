@@ -303,10 +303,10 @@
 								\end{alignat*}$$
 							</div>
 							<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 40px;"> where $V_h \subseteq H^*(\curl,\Omega)$ <b><u>Gauging!</u></b></p>
-							<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Discrete spaces </p>
+							<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px; margin-top: 40px;"> <i class="fa fa-caret-right"></i> Discrete spaces </p>
 							<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 40px;"> $V_h = \N_k\cap H^*(\curl,\Omega)$ (Nedelec) </p>
 							<p class="fontsize-25 fragment  rounded_box red" data-fragment-index="2" align="left" style="text-indent: 40px;"> For $k=0$: #ne $\sim$ $6\cdot$ #np  DOFs<i class="fa-regular fa-face-frown"></i></p>
-							<p class="fontsize-25 fragment" data-fragment-index="3" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Number of iterations </p>
+							<p class="fontsize-25 fragment" data-fragment-index="3" align="left" style="text-indent: 10px;margin-top: 40px;"> <i class="fa fa-caret-right"></i> Number of iterations </p>
 							<p class="fontsize-25 fragment rounded_box white" data-fragment-index="3" align="left" style="text-indent: 40px;"> For our example: $\approx 20$ <i class="fa-regular fa-face-smile"></i></p>
 						</div>
 
@@ -321,14 +321,14 @@
 							</div>
 							<!-- <p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 40px;"> where $V_h = P_{k+1}$</p> -->
 							<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 40px;"> where $W_h \subseteq H^1_*(\Omega)$</p>
-							<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Discrete spaces </p>
+							<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px; margin-top: 40px;"> <i class="fa fa-caret-right"></i> Discrete spaces </p>
 							<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 40px;"> $W_h = P_{k+1} \cap H^1_*(\Omega)$ </p>
 							<p class="fontsize-25 fragment rounded_box white" data-fragment-index="2" align="left" style="text-indent: 40px;"> For $k=0$: #np DOFs <i class="fa-regular fa-face-smile"></i></p>
-							<p class="fontsize-25 fragment" data-fragment-index="3" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Number of iterations </p>
+							<p class="fontsize-25 fragment" data-fragment-index="3" align="left" style="text-indent: 10px;margin-top: 40px;"> <i class="fa fa-caret-right"></i> Number of iterations </p>
 							<p class="fontsize-25 fragment rounded_box red" data-fragment-index="3" align="left" style="text-indent: 40px;"> For our example: $\approx 40$ <i class="fa-regular fa-face-frown"></i></p>
 						</div>
 					</div>
-					<p class="fontsize-30 fragment" data-fragment-index="4" align="center" style="text-indent: 10px;"> Can we achieve two <i class="fa-regular fa-face-smile"></i> ?</p>
+					<!-- <p class="fontsize-30 fragment" data-fragment-index="4" align="center" style="text-indent: 10px;"> Can we achieve two <i class="fa-regular fa-face-smile"></i> ?</p> -->
 				</section>
 
 
@@ -420,8 +420,8 @@
 							<p class="fontsize-25" align="left" style="margin-left: 40px;"> Find $(B,\psi)\in L^2(\Omega)^3\times H^1_*(\Omega)$ such that</p>
 							<div class="row fontsize-25">
 								$$\begin{alignat*}{2}
-								(f'(B), v)-(\grad\psi,v) &= (H_J,v)\qquad &&\forall v\in L^2(\Omega)^3 \\
-								(B,\grad q) &=0 &&\forall q\in H^1_*(\Omega)
+								(f'(B), q)-(\grad\psi,q) &= (H_J,q)\qquad &&\forall q\in L^2(\Omega)^3 \\
+								(B,\grad v) &=0 &&\forall v\in H^1_*(\Omega)
 								\end{alignat*}$$
 							</div>
 						</div>
@@ -429,8 +429,8 @@
 							<p class="fontsize-25" align="left" style="margin-left: 40px;"> Find $(B_h,\psi_h)\in Q_h\times V_h \subseteq L^2(\Omega)^3\times H^1_*(\Omega)$ such that</p>
 							<div class="row fontsize-25">
 								$$\begin{alignat*}{2}
-								(f'(B_h), v_h)_h-(\grad\psi_h,v_h) &= (H_J,v_h)\qquad &&\forall v_h\in Q_h \\
-								(B_h,\grad q_h) &=0 &&\forall q_h\in V_h
+								(f'(B_h), q_h)_h-(\grad\psi_h,q_h) &= (H_J,q_h)\qquad &&\forall q_h\in Q_h \\
+								(B_h,\grad v_h) &=0 &&\forall v_h\in V_h
 								\end{alignat*}$$
 							</div>							
 							<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Here $V_h = P_{k+1}\cap H^1_*(\Omega)$ and $Q_h = P_k^3\cap L^2(\Omega)^3$</p>
@@ -442,8 +442,8 @@
 								<p class="fontsize-20" align="left" style="margin-top: 0;"> Find $(\delta B_h^n,\delta \psi_h^n)\in Q_h\times V_h$ such that</p>
 								<div class="fontsize-20" style="margin-top: 0px; margin-left: 100px;">
 									$$\begin{alignat*}{2}
-									(f''(B_h^n)\delta B_h^n, v_h)_h-(\grad\delta\psi_h^n,v_h) &= -\left((f'(B_h^n), v_h)_h-(\grad\psi_h^n,v_h)-(H_J,v_h)\right)\qquad &&\forall v_h\in Q_h \\
-									(\delta B_h^n,\grad q_h) &= -(B_h^n,\grad q_h) &&\forall q_h\in V_h
+									(f''(B_h^n)\delta B_h^n, q_h)_h-(\grad\delta\psi_h^n,q_h) &= -\left((f'(B_h^n), q_h)_h-(\grad\psi_h^n,q_h)-(H_J,q_h)\right)\qquad &&\forall q_h\in Q_h \\
+									(\delta B_h^n,\grad v_h) &= -(B_h^n,\grad v_h) &&\forall v_h\in V_h
 									\end{alignat*}$$
 								</div>
 							</div>
@@ -464,29 +464,45 @@
 						<p class="fontsize-25" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> Each Newton step has the form </p>
 						<div class="row fontsize-25">
 							$$\begin{alignat*}{2}
-								(f''(B_h^n)\delta B_h^n, v_h)_h-(\grad\delta\psi_h^n,v_h) &= \ldots \\
-								(\delta B_h^n,\grad q_h) &= \ldots
+								(f''(B_h^n)\delta B_h^n, q_h)_h-(\grad\delta\psi_h^n,q_h) &= (r_1,q_h) \\
+								(\delta B_h^n,\grad v_h) &= (r_2,v_h)
 							\end{alignat*}$$
 						</div>
 					</div>
 					<p class="fontsize-25" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> After assembly, the lowest order  </p>
-					<div class="row fontsize-25">
-						$$\begin{alignat*}{2}
-						\begin{pmatrix}
-						\ttA & -\ttB \\
-						\ttB &  \ttZ \\
-						\end{pmatrix}						
-						\begin{pmatrix}
-						\delta b^n\\
-						\delta \psi^n\\
-						\end{pmatrix}=
-						\begin{pmatrix}
-						\ttr_1\\
-						\ttr_2\\
-						\end{pmatrix}
-						\end{alignat*}$$
-					<img src="assets/full_matrix.png" width="350" height="auto"/>
-					<img src="assets/reduced_matrix.png" width="350" height="auto"/>
+
+
+					
+					<div class="row" style="margin-top: 16px">
+						<div class="col-50 fragment" data-fragment-index="0">
+							<div class="fontsize-25">
+								$$\begin{alignat*}{2}
+								\begin{pmatrix}
+								\ttA & -\ttB^\top \\
+								\ttB &  \ttZ \\
+								\end{pmatrix}
+								\begin{pmatrix}
+								\delta b^n\\
+								\delta \psi^n\\
+								\end{pmatrix}=
+								\begin{pmatrix}
+								\ttr_1\\
+								\ttr_2\\
+								\end{pmatrix}
+								\end{alignat*}$$
+							</div>
+							<img src="assets/full_matrix.png" width="350" height="auto"/>
+						</div>
+
+						<div class="col-50 fragment" data-fragment-index="1">
+							<div class="fontsize-25">
+								$$\begin{alignat*}{2}
+								-(\ttB^\top\ttA^{-1}\ttB)\;\delta\psi^n = \ttB\ttA^{-1}\ttr_1 -\ttr_2
+								\end{alignat*}$$
+							</div>
+							<img style="margin-top: 53px;" src="assets/reduced_matrix.png" width="350" height="auto"/>
+						</div>
+					</div>
 				</section>
 
 
