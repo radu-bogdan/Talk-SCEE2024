@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+		<meta name="description" content=""/>
+		<meta name="author" content="Bogdan Radu"/>
+		<title>Bogdan Radu</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/simple.css">
+		
+		<link rel="stylesheet" type="text/css" href="css/fonts.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="css/custom.css">
+		<script src="https://kit.fontawesome.com/ff88925252.js" crossorigin="anonymous"></script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- Slide "Deck"Blatt -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<div class="title" style="margin-top: 50px"> A scalar potential approach for magnetostatics <br> avoiding the coenergy </div>
+
+					<div class="fontsize-30" style="margin-top: 75px"> <b>Bogdan Radu</b>, Felix Engertsberger, Herbert Egger </div>
+					<div class="fontsize-20" style="margin-top: 25px"> Johann Radon Institute for Computational and Applied Mathematics (RICAM) </div>
+					<div class="fontsize-20"> Austrian Academy of Sciences (ÖAW) Linz, Austria </div>
+
+					<div class="fontsize-30" style="margin-top: 50px;"> 5th March 2024 </div>
+					<div class="fontsize-30"> SCEE 2024, Darmstadt</div>
+
+					<div style="margin-top: 30px; margin-bottom: 75px">
+						<div class="grid_row">
+							<img src="assets/oeaw_ricam_logo.svg" class="logo" alt="logo_RICAM_ÖAW">
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide Motivation -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title><span slot="title">Motivation</span></slide-title>
+					<p class="fontsize-28" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Compumag TEAM Problem 13:</p>
+					<div class="fragment fade-in-then-out" data-fragment-index="0" >
+						<div style="margin-top: -219px">
+							<iframe style="height: 800px; width: 960px; transform: scale(0.5);" scrolling="no" src="assets/linear_motivation.html"></iframe>
+						</div>
+					</div>
+					<div class="fragment fade-in-then-out" data-fragment-index="1" >
+						<div>
+							<iframe style="height: 800px; width: 960px; transform: scale(0.5);" scrolling="no" src="assets/nonlinear_motivation.html"></iframe>
+						</div>
+						<p class="fontsize-28" align="left" style="margin-top: -200px; text-indent: 10px;"> <i class="fa fa-caret-right"></i> Given a current density $J$ in the coil and a (nonlinear) material law, compute the magnetic flux density $B$</p>
+					</div>
+					<div class="fragment fade-in-then-out" data-fragment-index="2" >
+						<div>
+							<iframe style="height: 800px; width: 960px; transform: scale(0.5);" scrolling="no" src="assets/nonlinear_motivation2.html"></iframe>
+						</div>
+						<p class="fontsize-28" align="left" style="margin-top: -200px; text-indent: 10px;"> <i class="fa fa-caret-right"></i> Given a current density $J$ in the coil and a (nonlinear) material law, compute the magnetic flux density $B$</p>
+					</div>
+				</section>
+
+				<!-- Slide 2 -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title><span slot="title">Maxwell's equations</span></slide-title>
+					<p class="fontsize-25" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Let $\Omega\subseteq\mathbb{R}^d$. Then Maxwell's equations for magnetostatics are</p>
+					<div class="fontsize-25">
+					$$\begin{alignat*}{2}
+					\curl H & = J \qquad &&\text{(Ampere Law)} \\[3pt]
+					\div B  &= 0 \qquad &&\text{(Gauss Law)} \\[3pt]
+					n\cdot B &=0 \qquad &&\text{on }\partial\Omega
+					\end{alignat*}$$
+					</div>
+
+					<div class="fragment" data-fragment-index="1" style="margin-top: 50px;">
+						<p class="fontsize-25"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Let $\Omega\subseteq\mathbb{R}^d$. Nonlinear material law</p>
+						<div class="fontsize-25">
+							$$H = \textcolor{red}{f'(B)} := \grad_B f(B) \qquad\text{ or }\qquad B = \textcolor{blue}{g'(H)}:=\grad_H g(H)$$
+						</div>
+						<p class="fontsize-25" align="left" style="text-indent: 46px;">Here $\textcolor{red}{f}$ and $\textcolor{blue}{g}$ are the energy/coenergy densities.</p>
+					</div>
+
+
+					<div class="fragment" data-fragment-index="2" style="margin-top: 40px;">
+						<p class="fontsize-25"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Possible formulations</p>
+						<div class="row" style="margin-left: 46px;">
+							<div class="col-50">
+								<p class="fontsize-28 rounded_box red">Vector potential formulation</p>
+							</div>
+							<div class="col-50">
+								<p class="fontsize-28 rounded_box blue">Scalar potential formulation</p>
+								<!-- <p class="fontsize-25" style="color: blue;">Scalar potential formulation</p> -->
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Vector potential formulation, part1 -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title><span slot="title">Vector potential formulation</span></slide-title>
+					<p class="fontsize-25" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Derivation </p>
+					<div class="row" style="display: flex; align-items: center">
+						<div class="col-30 fragment" data-fragment-index="0">
+							<div class="fade-in-then-out fontsize-25">
+								<table>
+								$$\begin{alignat*}{2}
+								\curl H & = J \\[3pt]
+								\div B  &= 0 \\[3pt]
+								H &= f'(B)
+								\end{alignat*}$$
+								</table>
+							</div>
+						</div>
+						<!-- <div class="col-20 row fontsize-25 fragment" data-fragment-index="1"><i class="fa fa-arrow-right"></i></div> -->
+						<div class="row col-30 fragment" data-fragment-index="1">
+							<div class="col-20 row fontsize-25" style="margin-top: 37px;"><i class="fa fa-arrow-right"></i></div>
+							<div class="col-20 row fontsize-25" >
+								$$\begin{alignat*}{2}
+								\curl H & = J \\[3pt]
+								\textcolor{red}{\curl A}  &\textcolor{red}{ \;= B} \\[3pt]
+								H &= f'(B)
+								\end{alignat*}$$
+							</div>
+						</div>
+						<div class="row col-30 fragment" data-fragment-index="2">
+							<div class="col-20 row fontsize-25" style="margin-top: 14px;"><i class="fa fa-arrow-right"></i></div>
+							<div class="col-20 row fontsize-25" >
+								<div class = "rounded_box red">
+								$$\begin{alignat*}{2}
+								\curl f'(\curl A) = J
+									\end{alignat*}$$
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="fragment" data-fragment-index="1" style="margin-top: 50px;">
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Assumption: $\Omega$ is <b><u>simply connected</u></b>! </p>						
+					</div>
+
+					<div class="fragment" data-fragment-index="3" style="margin-top: 50px;">
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Weak formulation, assuming $n\times H = n\times f'(\curl A) = 0$ on $\partial\Omega$:</p>
+						<p class="fontsize-25" align="left" style="margin-left: 40px;"> Find $A\in H^*(\curl,\Omega) = \{u\in L^2(\Omega)^3\;|\; \curl u\in L^2(\Omega)^3,\, \div u = 0\}$ such that</p>
+						<div class="row fontsize-25" style="margin-top: 30px;">
+							$$\begin{alignat*}{2}
+							(f'(\curl A), \curl v) = (J,v)\qquad\forall v\in H^*(\curl,\Omega)
+							\end{alignat*}$$
+						</div>
+					</div>
+
+					<div class="fragment" data-fragment-index="4" style="margin-top: 50px;">
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Existence and uniqueness is guaranteed, if $f$ is <i>smooth and strongly coercive with non-negative, bounded second derivatives</i>.</p>
+					</div>
+				</section>
+
+
+
+				
+				<!-- Vector potential formulation, part2 -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title><span slot="title">Vector potential formulation</span></slide-title>
+					<div style="margin-top: 20px;">
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Find $A\in H^*(\curl,\Omega)$ such that $(f'(\curl A), \curl v) = (J,v)$ for all $v\in H^*(\curl,\Omega)$.</p>
+					</div>
+					<div class="fragment" data-fragment-index="0" style="margin-top: 20px;">
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Equivalent to the <b><u>convex</u></b> minimization problem</p>
+						<div class="row fontsize-25" style="margin-top: 30px;">
+							$$\begin{alignat*}{2}
+							A:=\argmin_\limits{u\in H^*(\curl,\Omega)} \int_\Omega f(\curl u)- J\cdot u
+							\end{alignat*}$$
+						</div>
+					</div>
+					<div class="fragment" data-fragment-index="1" style="margin-top: 50px;">
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Initialize with $A^0=0$. Newton step: $A^{n+1} = A^n + \alpha^n\; \delta A^n$, where $\delta A^n$ solves </p>
+
+						<div class="rounded_box red">
+							<p class="fontsize-20" align="left" style="margin-top: 0;"> Find $\delta A^n\in H^*(\curl,\Omega)$ such that</p>
+							<div class="fontsize-20" style="margin-top: 0px; margin-left: 100px;">
+								$$\begin{alignat*}{2}
+								(f''(\curl A^n)\curl \delta A^n, \curl v) = -\left((f'(\curl A^n),\curl v) - (J,v)\right),\quad\forall v\in H^*(\curl,\Omega)
+								\end{alignat*}$$
+							</div>
+						</div>
+						<p class="fontsize-25" align="left" style="margin-left: 40px;"> Here the relaxation step $\alpha^n$ is determined by Armijo backtracking.</p>
+					</div>
+					<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Number of iterations depends <b><u>only</u></b> on the nonlinearity $f$ </p>
+					<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> The same holds on the discrete level, for any conforming subspace $V_h\subseteq H^*(\curl,\Omega)$ </p>
+				</section>
+
+
+
+
+				<!-- Scalar potential formulation, part2 -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title><span slot="title">Scalar potential formulation</span></slide-title>
+					<p class="fontsize-25" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Derivation </p>
+					<div class="row" style="display: flex; align-items: center">
+						<div class="col-30 fragment" data-fragment-index="0">
+							<div class="fade-in-then-out fontsize-25">
+								<table>
+								$$\begin{alignat*}{2}
+								\curl H & = J \\[3pt]
+								\div B  &= 0 \\[3pt]
+								g'(H) &= B
+								\end{alignat*}$$
+								</table>
+							</div>
+						</div>
+						<!-- <div class="col-20 row fontsize-25 fragment" data-fragment-index="1"><i class="fa fa-arrow-right"></i></div> -->
+						<div class="row col-30 fragment" data-fragment-index="1">
+							<div class="col-20 row fontsize-25" style="margin-top: 37px;"><i class="fa fa-arrow-right"></i></div>
+							<div class="col-20 row fontsize-25" >
+								$$\begin{alignat*}{2}
+								<!-- \curl H & = J \\[3pt] -->
+								\textcolor{blue}{H_J + \grad\psi}  &\textcolor{blue}{ \;= H} \\[3pt]
+								\div B  &= 0 \\[3pt]
+								g'(H) &= B
+								\end{alignat*}$$
+							</div>
+						</div>
+						<div class="row col-30 fragment" data-fragment-index="2">
+							<div class="col-20 row fontsize-25" style="margin-top: 14px;"><i class="fa fa-arrow-right"></i></div>
+							<div class="col-20 row fontsize-25" >
+								<div class = "rounded_box blue">
+								$$\begin{alignat*}{2}
+								\div g'(H_J + \grad\psi) = 0
+									\end{alignat*}$$
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="fragment" data-fragment-index="1" style="margin-top: 50px;">
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Assumption: We have an $H_J$ such that $\curl H_J = J$.</p>						
+					</div>
+
+					<div class="fragment" data-fragment-index="3" style="margin-top: 50px;">
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Weak formulation, assuming $n\cdot B = n\cdot g'(H_J+\grad\psi) = 0$ on $\partial\Omega$:</p>
+						<p class="fontsize-25" align="left" style="margin-left: 40px;"> Find $\psi\in H^1_*(\Omega) = \{u\in L^2(\Omega)\;|\; \grad u\in L^2(\Omega),\;\int_\Omega u = 0\}$ such that</p>
+						<div class="row fontsize-25" style="margin-top: 30px;">
+							$$\begin{alignat*}{2}
+							(g'(H_J + \grad\psi), \grad v) = 0 \qquad\forall v\in H^1_*(\Omega)
+							\end{alignat*}$$
+						</div>				
+					</div>
+
+					<div class="fragment" data-fragment-index="4" style="margin-top: 50px;">
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Existence and uniqueness is guaranteed, if $g$ is <i>smooth and strongly coercive with non-negative, bounded second derivatives</i>.</p>
+					</div>
+				</section>
+
+
+
+
+				<!-- Scalar potential formulation, part2 -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title><span slot="title">Vector potential formulation</span></slide-title>
+					<div style="margin-top: 20px;">
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Find $\psi\in H^1_*(\Omega)$ such that $(g'(H_J + \grad\psi), \grad v) = 0$ for all $v\in H^1_*(\Omega)$.</p>
+					</div>
+					<div class="fragment" data-fragment-index="0" style="margin-top: 20px;">
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Equivalent to the <b><u>convex</u></b> minimization problem</p>
+						<div class="row fontsize-25" style="margin-top: 30px;">
+							$$\begin{alignat*}{2}
+							\psi:=\argmin_\limits{u\in H^1_*(\Omega)} \int_\Omega g(H_J+\grad u)
+							\end{alignat*}$$
+						</div>
+					</div>
+					<div class="fragment" data-fragment-index="1" style="margin-top: 50px;">
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Initialize with $\psi^0=0$. Newton step: $\psi^{n+1} = \psi^n + \alpha^n\; \delta \psi^n$, where $\delta \psi^n$ solves </p>
+
+						<div class="rounded_box blue">
+							<p class="fontsize-20" align="left" style="margin-top: 0;"> Find $\delta \psi^n\in H^1_*(\Omega)$ such that</p>
+							<div class="fontsize-20" style="margin-top: 0px; margin-left: 100px;">
+								$$\begin{alignat*}{2}
+								(g''(H_J+\grad\psi^n)\grad \delta\psi^n, \grad v) = -(g'(H_J + \grad\psi^n), \grad v),\quad\forall v\in H^1_*(\Omega)
+								\end{alignat*}$$
+							</div>
+						</div>
+						<p class="fontsize-25" align="left" style="margin-left: 40px;"> Here the relaxation step $\alpha^n$ is determined by Armijo backtracking.</p>
+					</div>
+					<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Number of iterations depends <b><u>only</u></b> on the nonlinearity $f$ </p>
+					<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> The same holds on the discrete level, for any conforming subspace $W_h\subseteq H^1_*(\Omega)$ </p>
+				</section>
+
+
+				<!-- Comparison -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title><span slot="title">Comparison</span></slide-title>
+					<div class="row" style="margin-top: 16px">
+						<div class="col-50">
+							<p class="fontsize-25" align="left" style="text-indent: 40px; color:red"> Vector potential </p>
+							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> $(f'(\curl A), \curl v) = (J,v)$ </p>
+							<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> (Discrete) Newton step: </p>
+							<div class="fontsize-25 fragment" data-fragment-index="1">
+								$$\begin{alignat*}{2}
+								(f''(\curl A^n_\textcolor{red}{h})\curl \delta A^n_\textcolor{red}{h}, \curl v_\textcolor{red}{h}) = \ldots
+								\end{alignat*}$$
+							</div>
+							<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 40px;"> where $V_h \subseteq H^*(\curl,\Omega)$ <b><u>Gauging!</u></b></p>
+							<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Discrete spaces </p>
+							<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 40px;"> $V_h = \N_k\cap H^*(\curl,\Omega)$ (Nedelec) </p>
+							<p class="fontsize-25 fragment  rounded_box red" data-fragment-index="2" align="left" style="text-indent: 40px;"> For $k=0$: #ne $\sim$ $6\cdot$ #np  DOFs<i class="fa-regular fa-face-frown"></i></p>
+							<p class="fontsize-25 fragment" data-fragment-index="3" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Number of iterations </p>
+							<p class="fontsize-25 fragment rounded_box white" data-fragment-index="3" align="left" style="text-indent: 40px;"> For our example: $\approx 20$ <i class="fa-regular fa-face-smile"></i></p>
+						</div>
+
+						<div class="col-50">
+							<p class="fontsize-25" align="left" style="text-indent: 40px; color:blue"> Scalar potential </p>
+							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> $(g'(H_J + \grad\psi), \grad v) = 0$ </p>
+							<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> (Discrete) Newton step: </p>
+							<div class="fontsize-25 fragment" data-fragment-index="1">
+								$$\begin{alignat*}{2}
+								(g''(H_J+\grad\psi^n_\textcolor{red}{h})\grad \delta\psi_\textcolor{red}{h}^n, \grad v_\textcolor{red}{h}) = \ldots
+								\end{alignat*}$$
+							</div>
+							<!-- <p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 40px;"> where $V_h = P_{k+1}$</p> -->
+							<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 40px;"> where $W_h \subseteq H^1_*(\Omega)$</p>
+							<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Discrete spaces </p>
+							<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 40px;"> $W_h = P_{k+1} \cap H^1_*(\Omega)$ </p>
+							<p class="fontsize-25 fragment rounded_box white" data-fragment-index="2" align="left" style="text-indent: 40px;"> Lowest order : #np DOFs <i class="fa-regular fa-face-smile"></i></p>
+							<p class="fontsize-25 fragment" data-fragment-index="3" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Number of iterations </p>
+							<p class="fontsize-25 fragment rounded_box red" data-fragment-index="3" align="left" style="text-indent: 40px;"> For our example: $\approx 40$ <i class="fa-regular fa-face-frown"></i></p>
+						</div>
+					</div>
+					<p class="fontsize-30 fragment" data-fragment-index="4" align="center" style="text-indent: 10px;"> Can we achieve two <i class="fa-regular fa-face-smile"></i> ?</p>
+				</section>
+
+
+				<!-- A new idea ... -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title><span slot="title">A new idea ... </span></slide-title>
+					<div class="row" style="margin-top: 16px">
+						<div class="col-50">
+							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 40px; color:red"> Vector potential </p>
+							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Minimization problem </p>
+							
+							<div class="fontsize-25 fragment" data-fragment-index="0">
+								$$\begin{alignat*}{2}
+								A:=\argmin_\limits{u\in H^*(\curl,\Omega)} \int_\Omega f(\curl u)- J\cdot u
+								\end{alignat*}$$
+							</div>
+						</div>
+
+						<div class="col-50">
+							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 40px; color:blue"> Scalar potential </p>
+							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Minimization problem </p>
+							<div class="fontsize-25 fragment" data-fragment-index="0">
+								$$\begin{alignat*}{2}
+								\psi:=\argmin_\limits{u\in H^1_*(\Omega)} \int_\Omega g(H_J+\grad u)
+								\end{alignat*}$$
+							</div>
+							<!-- <p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 40px;"> where $V_h = P_{k+1}$</p> -->
+						</div>
+					</div>
+					<!-- <p class="fontsize-25 fragment" data-fragment-index="0" align="middle" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> New mixed approach </p> -->
+					<p class="fontsize-25 fragment" data-fragment-index="1" align="middle" style="text-indent: 40px; color:magenta"> Mixed scalar potential </p>
+					<div class="fontsize-25 fragment" data-fragment-index="1">
+						$$\begin{alignat*}{2}
+						B:=\argmin_\limits{u} \int_\Omega f(u)-H_J\cdot u\,\quad\, \text{s.t. } \div u = 0
+						\end{alignat*}$$
+					</div>
+					<div class="fontsize-25 fragment" data-fragment-index="2">
+						$$\begin{alignat*}{2}
+						(B,\psi):=\argmax_\limits{\psi}\;\argmin_\limits{u} \int_\Omega f(u)- H_J \cdot u-\grad\psi \cdot u
+						\end{alignat*}$$
+					</div>
+					<div class="row fragment" data-fragment-index="3">
+						<p class="fontsize-25" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Derivation </p>
+						<div class="col-30 fragment" data-fragment-index="3">
+							<div class="fontsize-25">
+								<table>
+								$$\begin{alignat*}{2}
+								\curl H & = J \\[3pt]
+								\div B  &= 0 \\[3pt]
+								H &= f'(B)
+								\end{alignat*}$$
+								</table>
+							</div>
+						</div>
+						<!-- <div class="col-20 row fontsize-25 fragment" data-fragment-index="1"><i class="fa fa-arrow-right"></i></div> -->
+						<div class="row col-30 fragment" data-fragment-index="4">
+							<div class="col-20 row fontsize-25" style="margin-top: 37px;"><i class="fa fa-arrow-right"></i></div>
+							<div class="col-20 row fontsize-25" >
+								$$\begin{alignat*}{2}
+								<!-- \curl H & = J \\[3pt] -->
+								\textcolor{blue}{H_J + \grad\psi}  &\textcolor{blue}{ \;= H} \\[3pt]
+								\div B  &= 0 \\[3pt]
+								H &= f'(B)
+								\end{alignat*}$$
+							</div>
+						</div>
+						<div class="row col-30 fragment" data-fragment-index="5">
+							<div class="col-20 row fontsize-25" style="margin-top: 37px;"><i class="fa fa-arrow-right"></i></div>
+							<div class="col-20 row fontsize-25" >
+								<div class = "rounded_box blue">
+								$$\begin{alignat*}{2}
+								f'(B) -\grad\psi&= H_J \\
+								\div B &= 0
+								\end{alignat*}$$
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+
+
+
+
+
+
+
+				<!-- Slide X -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title> <span slot="title">Motivation</span> </slide-title>
+					
+					<p class="fontsize-25" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> This is a line with a caret in front.  </p>
+
+					<video data-autoplay src="assets/primal.withTOR.1200.mp4"></video>
+
+					<div class="col-30" style="margin-top: 30px;">
+
+						<table class="fontsize-25">
+							<tr>
+								<td class="fa fa-caret-right" style="border:none"></td>
+								<td style="border:none">Proof of existence</td>
+							</tr>
+							<tr>
+								<td class="fa fa-caret-right" style="border:none"></td>
+								<td>Contraction</td>
+						</table>
+					</div>
+				</section>
+			</div>
+		</div>
+
+
+
+		<script>
+			class BannerElement extends HTMLElement {
+			constructor() {
+				super(); // Always call super first in constructor
+				const shadowRoot = this.attachShadow({mode: 'open'}); // Use open mode for shadow DOM
+				shadowRoot.innerHTML = `
+				<div style="display: flex; align-items: center; justify-content: space-between; background-color: #4f7093; color: white; padding: px;">
+					<div style="text-indent: 10px;font-size: 30px; text-align: left; padding: 10üx"><slot name="title">Default Title</slot></div>
+					<div style="padding: 0px; background-color: #FFFFFF; border: 1px solid #4f7093;width: 190px;">
+					<img src="assets/oeaw_ricam_logo.svg" alt="logo_RICAM_ÖAW" style="margin: 0; vertical-align: middle; width: 180px;">
+					</div>
+				</div>
+				`;
+			}
+			}
+
+			// Define the new element
+			customElements.define('slide-title', BannerElement);
+		</script>
+
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				// Display presentation control arrows
+  				controls: false,
+				slideNumber: 'c/t',
+				hash: true,
+				center: false,
+				width: 960,
+  				height: 720,
+				minScale: 0.2,
+  				maxScale: 2.0,
+				margin: 0,
+				history: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3]
+			});
+		</script>
+
+		<script>
+			window.MathJax = {
+				tex: {
+					inlineMath: [['$', '$'], ['\\(', '\\)']],
+					macros: {
+						argmin : "\\operatorname{argmin}",
+						argmax : "\\operatorname{argmax}",
+						grad : "\\nabla",
+						div : "\\operatorname{div}",
+						curl : "\\operatorname{curl}",
+						Curl : "\\operatorname{Curl}",
+						RR: "\\mathbb{R}",
+						N: "\\mathcal{N}",
+						bold: ["\\boldsymbol{#1}", 1]
+					},
+				},
+				chtml: {
+					scale: 1,                      // global scaling factor for all expressions
+					minScale: 1,                  // smallest scaling factor to use					
+					mtextInheritFont: false,       // true to make mtext elements use surrounding font
+					merrorInheritFont: false,       // true to make merror text use surrounding font
+					mathmlSpacing: false,          // true for MathML spacing rules, false for TeX rules
+					skipAttributes: {},            // RFDa and other attributes NOT to copy to the output
+					exFactor: 1,                  // default size of ex in em units
+					displayAlign: 'center',        // default for indentalign when set to 'auto'
+					displayIndent: '0',            // default for indentshift when set to 'auto'
+					matchFontHeight: false,         // true to match ex-height of surrounding font
+					fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2',   // The URL where the fonts are found
+					adaptiveCSS: false,
+				}
+			};
+		</script>
+	</body>
+</html>
