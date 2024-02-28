@@ -42,22 +42,27 @@
 					</div>
 				</section>
 
-				<!-- Slide Motivation -->
+				<!-- Motivation -->
 				<section data-transition="fade" data-transition-speed="fast">
 					<slide-title><span slot="title">Motivation</span></slide-title>
 					<p class="fontsize-28" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Compumag TEAM Problem 13:</p>
 					<div class="fragment fade-in-then-out" data-fragment-index="0" >
 						<div style="margin-top: -219px">
-							<iframe style="height: 800px; width: 2000px; transform: scale(0.5);" scrolling="no" src="assets/linear_motivation.html"></iframe>
+							<iframe style="height: 800px; width: 2000px; transform: scale(0.5);" scrolling="no" src="assets/just_coil.html"></iframe>
 						</div>
 					</div>
 					<div class="fragment fade-in-then-out" data-fragment-index="1" >
+						<div>
+							<iframe style="height: 800px; width: 2000px; transform: scale(0.5);" scrolling="no" src="assets/linear_motivation.html"></iframe>
+						</div>
+					</div>
+					<div class="fragment fade-in-then-out" data-fragment-index="2" >
 						<div>
 							<iframe style="height: 800px; width: 2000px; transform: scale(0.5);" scrolling="no" src="assets/nonlinear_motivation.html"></iframe>
 						</div>
 						<p class="fontsize-28" align="left" style="margin-top: -200px; text-indent: 10px;"> <i class="fa fa-caret-right"></i> Given a current density $J$ in the coil and a (nonlinear) material law, compute the magnetic flux density $B$</p>
 					</div>
-					<div class="fragment fade-in-then-out" data-fragment-index="2" >
+					<div class="fragment fade-in-then-out" data-fragment-index="3" >
 						<div>
 							<iframe style="height: 800px; width: 2000px; transform: scale(0.5);" scrolling="no" src="assets/nonlinear_motivation2.html"></iframe>
 						</div>
@@ -66,6 +71,8 @@
 				</section>
 
 				<!-- Slide 2 -->
+
+				<!-- Maxwell's equations -->
 				<section data-transition="fade" data-transition-speed="fast">
 					<slide-title><span slot="title">Maxwell's equations</span></slide-title>
 					<p class="fontsize-25" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Let $\Omega\subseteq\mathbb{R}^d$. Then Maxwell's equations for magnetostatics are</p>
@@ -88,16 +95,16 @@
 
 					<div class="fragment" data-fragment-index="2" style="margin-top: 40px;">
 						<p class="fontsize-25"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Possible formulations</p>
-						<div class="row" style="margin-left: 46px;">
+						<div class="row" style="margin-left: 46px; margin-top: -20px;">
 							<div class="col-50">
 								<p class="fontsize-28 rounded_box red">Vector potential formulation</p>
 							</div>
 							<div class="col-50">
 								<p class="fontsize-28 rounded_box blue">Scalar potential formulation</p>
-								<!-- <p class="fontsize-25" style="color: blue;">Scalar potential formulation</p> -->
 							</div>
 						</div>
 					</div>
+					<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Why use one over the other? Efficiency, convenience $\ldots$ </p>
 				</section>
 
 				<!-- Vector potential formulation, part1 -->
@@ -267,7 +274,7 @@
 						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Equivalent to the <b><u>convex</u></b> minimization problem</p>
 						<div class="row fontsize-25" style="margin-top: 30px;">
 							$$\begin{alignat*}{2}
-							\psi:=\argmin_\limits{u\in H^1_*(\Omega)} \int_\Omega g(H_J+\grad u)
+							\psi:=-\argmax_\limits{u\in H^1_*(\Omega)} \int_\Omega g(H_J+\grad u)
 							\end{alignat*}$$
 						</div>
 					</div>
@@ -292,7 +299,7 @@
 				<!-- Comparison -->
 				<section data-transition="fade" data-transition-speed="fast">
 					<slide-title><span slot="title">Comparison</span></slide-title>
-					<div class="row" style="margin-top: 0px">
+					<div class="row" style="margin-top: 1px">
 						<div class="col-50">
 							<p class="fontsize-25" align="left" style="text-indent: 40px; color:red"> <b>Vector potential</b> </p>
 							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> $(f'(\curl A), \curl v) = (J,v)$ </p>
@@ -331,16 +338,39 @@
 					<!-- <p class="fontsize-30 fragment" data-fragment-index="4" align="center" style="text-indent: 10px;"> Can we achieve two <i class="fa-regular fa-face-smile"></i> ?</p> -->
 				</section>
 
+				<!-- Comparison -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title><span slot="title">Comparison</span></slide-title>
+					<!-- <div class="row" style="margin-top: 1px">
+						<div class="col-50">
+							<p class="fontsize-25" align="left" style="text-indent: 40px; color:red"> <b>Vector potential</b> </p>
+							<p class="fontsize-25"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Number of iterations </p>
+							<p class="fontsize-25 "  align="left" style="text-indent: 40px;"> For our example: $\approx 20$ <i class="fa-regular fa-face-smile"></i></p>
+						</div>
+						<div class="col-50">
+							<p class="fontsize-25" align="left" style="text-indent: 40px; color:blue"> <b>Scalar potential</b> </p>
+							<p class="fontsize-25 " align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Number of iterations </p>
+							<p class="fontsize-25 "  align="left" style="text-indent: 40px;"> For our example: $\approx 40$ <i class="fa-regular fa-face-frown"></i></p>
+						</div>
+					</div> -->
+					<p class="fontsize-25"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> The different number of iterations is a well documented fact: </p>
+					<p class="fontsize-18 citation" style="text-indent: 40px;">- Dular et. al. (2021). Finite-Element Formulations for Systems With High-Temperature Superconductors</p>
+					<p class="fontsize-18 citation" style="text-indent: 40px;">- Kovács, Kuczmann (2011). Solution of the TEAM workshop problem No. 7 by the Finite Element Method</p>
+					<img src="assets/zitat.png" width="400" height="auto"/>
+					<p class="fontsize-25 fragment" data-fragment-index="0"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Hypothesis: In general, for ferromagnetic materials, the <span style="color:blue">coenergy-based</span> formulations require more iteration steps than the <span style="color:red">energy-based</span> formulations </p>
+					<p class="fontsize-25 fragment" data-fragment-index="1"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Fact: Vector-potential formulation is more costly than the scalar-potential.</p>
+					<p class="fontsize-25 fragment" data-fragment-index="2"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Question: Can we get the best of both worlds, i.e. having to solve small systems <u>and</u> have a low number of iterations?</p>
+				</section>
 
 				<!-- A new idea ... -->
 				<section data-transition="fade" data-transition-speed="fast">
 					<slide-title><span slot="title">A new idea ... </span></slide-title>
 					<div class="row" style="margin-top: 16px">
 						<div class="col-50">
-							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 40px; color:red"> <b>Vector potential</b> </p>
-							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Minimization problem </p>
+							<p class="fontsize-25 " align="left" style="text-indent: 40px; color:red"> <b>Vector potential</b> </p>
+							<p class="fontsize-25 " align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Minimization problem </p>
 							
-							<div class="fontsize-25 fragment" data-fragment-index="0">
+							<div class="fontsize-25 ">
 								$$\begin{alignat*}{2}
 								A:=\argmin_\limits{u\in H^*(\curl,\Omega)} \int_\Omega f(\curl u)- J\cdot u
 								\end{alignat*}$$
@@ -348,11 +378,11 @@
 						</div>
 
 						<div class="col-50">
-							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 40px; color:blue"> <b>Scalar potential</b> </p>
-							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Minimization problem </p>
-							<div class="fontsize-25 fragment" data-fragment-index="0">
+							<p class="fontsize-25 " align="left" style="text-indent: 40px; color:blue"> <b>Scalar potential</b> </p>
+							<p class="fontsize-25 " align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Minimization problem </p>
+							<div class="fontsize-25 ">
 								$$\begin{alignat*}{2}
-								\psi:=\argmin_\limits{u\in H^1_*(\Omega)} \int_\Omega g(H_J+\grad u)
+								\psi:=-\argmax_\limits{u\in H^1_*(\Omega)} \int_\Omega g(H_J+\grad u)
 								\end{alignat*}$$
 							</div>
 							<!-- <p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 40px;"> where $V_h = P_{k+1}$</p> -->
@@ -464,15 +494,12 @@
 						<p class="fontsize-25" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> Each Newton step has the form </p>
 						<div class="row fontsize-25">
 							$$\begin{alignat*}{2}
-								(f''(B_h^n)\delta B_h^n, q_h)_h-(\grad\delta\psi_h^n,q_h) &= (r_1,q_h) \\
-								(\delta B_h^n,\grad v_h) &= (r_2,v_h)
+								(f''(B_h^n)\delta B_h^n, q_h)_h-(\grad\delta\psi_h^n,q_h) &= (r_1,q_h), \qquad\forall q_h\in \textcolor{red}{Q_h\subseteq L^2(\Omega)^3} \\
+								(\delta B_h^n,\grad v_h) &= (r_2,v_h), \qquad\forall v_h\in \textcolor{red}{V_h\subseteq H^1(\Omega)}
 							\end{alignat*}$$
 						</div>
 					</div>
-					<p class="fontsize-25" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> After assembly, the lowest order  </p>
-
-
-					
+					<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> Let us look at the system of equations in more detail...</p>
 					<div class="row" style="margin-top: 16px">
 						<div class="col-50 fragment" data-fragment-index="0">
 							<div class="fontsize-25">
@@ -495,18 +522,64 @@
 						</div>
 
 						<div class="col-50 fragment" data-fragment-index="1">
+							<p class="fontsize-25" align="left" style="margin-top: -10px;"><i class="fa fa-caret-right"></i> Schur complement:</p>
+							<div class="fontsize-25" style="margin-top: -10px;">
+								$$\begin{alignat*}{2}
+								-(\ttB^\top\ttA^{-1}\ttB)\;\delta\psi^n = \ttB\ttA^{-1}\ttr_1 -\ttr_2
+								\end{alignat*}$$
+							</div>
+							<img style="margin-top: 18px;" src="assets/reduced_matrix.png" width="350" height="auto"/>
+						</div>
+					</div>
+				</section>
+
+				<!-- Mixed scalar potential, part 3 -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title> <span slot="title">A mixed scalar potential formulation</span> </slide-title>
+					<p class="fontsize-25" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> In the linear case, the matrices for the scalar potential and the new mixed formulation are the same! What makes the nonlinear case so different?</p>
+					<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> 
+						The Newton directions are different!
+					</p>
+					<div class="row">
+						<div class="col-50 fragment" data-fragment-index="0">
+							<p class="fontsize-25 " align="left" style="text-indent: 40px; color:blue"> <b>Scalar potential</b> </p>
+							<div class="fontsize-25">
+								$$\begin{alignat*}{2}
+								\ttK\;\delta\psi^n = \ttr_3
+								\end{alignat*}$$
+							</div>
+							<div class="fontsize-25" style="margin-top: 40px;">
+								$$\begin{alignat*}{2}
+								&\div g''(H_J + \grad\delta\psi^n_h) \\
+								&\qquad= -\div g'(H_J + \grad\psi^n_h)
+								\end{alignat*}$$
+							</div>
+						</div>
+						<div class="col-50 fragment" data-fragment-index="0">
+							<p class="fontsize-25 " align="left" style="text-indent: 40px; color:magenta"> <b>Mixed Scalar potential</b> </p>
 							<div class="fontsize-25">
 								$$\begin{alignat*}{2}
 								-(\ttB^\top\ttA^{-1}\ttB)\;\delta\psi^n = \ttB\ttA^{-1}\ttr_1 -\ttr_2
 								\end{alignat*}$$
 							</div>
-							<img style="margin-top: 53px;" src="assets/reduced_matrix.png" width="350" height="auto"/>
+							<div class="fontsize-25" style="margin-top: 40px;">
+								$$\begin{alignat*}{2}
+								&\div f''(\delta b_h^n)^{-1}\grad\delta\psi^n_h \\
+								&\qquad= -\div f''(\delta b_h^n)^{-1}(f'(b_h^n)-\grad\psi_h^n -H_J)
+								\end{alignat*}$$
+							</div>
 						</div>
 					</div>
+					<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> These are to be understood weakly, in $H^{-1}$.</p>
 				</section>
 
 
-
+				<!-- Mixed scalar potential, part 3 -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title> <span slot="title">Numerical experiment</span> </slide-title>
+					<p class="fontsize-25" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> TODO : graph mit Vergleich der Iterationen, Zeiten ...!</p>
+					<p class="fontsize-25" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> Summary </p>
+				</section>
 
 
 				<!-- Slide X -->
@@ -598,6 +671,7 @@
 						bold: ["\\boldsymbol{#1}", 1],
 						ttA : "\\mathtt{A}",
 						ttB : "\\mathtt{B}",
+						ttK : "\\mathtt{K}",
 						ttZ : "\\mathtt{0}",
 						ttr : "\\mathtt{r}"
 					},
