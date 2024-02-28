@@ -48,18 +48,18 @@
 					<p class="fontsize-28" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Compumag TEAM Problem 13:</p>
 					<div class="fragment fade-in-then-out" data-fragment-index="0" >
 						<div style="margin-top: -219px">
-							<iframe style="height: 800px; width: 960px; transform: scale(0.5);" scrolling="no" src="assets/linear_motivation.html"></iframe>
+							<iframe style="height: 800px; width: 2000px; transform: scale(0.5);" scrolling="no" src="assets/linear_motivation.html"></iframe>
 						</div>
 					</div>
 					<div class="fragment fade-in-then-out" data-fragment-index="1" >
 						<div>
-							<iframe style="height: 800px; width: 960px; transform: scale(0.5);" scrolling="no" src="assets/nonlinear_motivation.html"></iframe>
+							<iframe style="height: 800px; width: 2000px; transform: scale(0.5);" scrolling="no" src="assets/nonlinear_motivation.html"></iframe>
 						</div>
 						<p class="fontsize-28" align="left" style="margin-top: -200px; text-indent: 10px;"> <i class="fa fa-caret-right"></i> Given a current density $J$ in the coil and a (nonlinear) material law, compute the magnetic flux density $B$</p>
 					</div>
 					<div class="fragment fade-in-then-out" data-fragment-index="2" >
 						<div>
-							<iframe style="height: 800px; width: 960px; transform: scale(0.5);" scrolling="no" src="assets/nonlinear_motivation2.html"></iframe>
+							<iframe style="height: 800px; width: 2000px; transform: scale(0.5);" scrolling="no" src="assets/nonlinear_motivation2.html"></iframe>
 						</div>
 						<p class="fontsize-28" align="left" style="margin-top: -200px; text-indent: 10px;"> <i class="fa fa-caret-right"></i> Given a current density $J$ in the coil and a (nonlinear) material law, compute the magnetic flux density $B$</p>
 					</div>
@@ -284,7 +284,7 @@
 						</div>
 						<p class="fontsize-25" align="left" style="margin-left: 40px;"> Here the relaxation step $\alpha^n$ is determined by Armijo backtracking.</p>
 					</div>
-					<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Number of iterations depends <b><u>only</u></b> on the nonlinearity $f$ </p>
+					<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Number of iterations depends <b><u>only</u></b> on the nonlinearity $g$ </p>
 					<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> The same holds on the discrete level, for any conforming subspace $W_h\subseteq H^1_*(\Omega)$ </p>
 				</section>
 
@@ -292,9 +292,9 @@
 				<!-- Comparison -->
 				<section data-transition="fade" data-transition-speed="fast">
 					<slide-title><span slot="title">Comparison</span></slide-title>
-					<div class="row" style="margin-top: 16px">
+					<div class="row" style="margin-top: 0px">
 						<div class="col-50">
-							<p class="fontsize-25" align="left" style="text-indent: 40px; color:red"> Vector potential </p>
+							<p class="fontsize-25" align="left" style="text-indent: 40px; color:red"> <b>Vector potential</b> </p>
 							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> $(f'(\curl A), \curl v) = (J,v)$ </p>
 							<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> (Discrete) Newton step: </p>
 							<div class="fontsize-25 fragment" data-fragment-index="1">
@@ -311,7 +311,7 @@
 						</div>
 
 						<div class="col-50">
-							<p class="fontsize-25" align="left" style="text-indent: 40px; color:blue"> Scalar potential </p>
+							<p class="fontsize-25" align="left" style="text-indent: 40px; color:blue"> <b>Scalar potential</b> </p>
 							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> $(g'(H_J + \grad\psi), \grad v) = 0$ </p>
 							<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> (Discrete) Newton step: </p>
 							<div class="fontsize-25 fragment" data-fragment-index="1">
@@ -323,7 +323,7 @@
 							<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 40px;"> where $W_h \subseteq H^1_*(\Omega)$</p>
 							<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Discrete spaces </p>
 							<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 40px;"> $W_h = P_{k+1} \cap H^1_*(\Omega)$ </p>
-							<p class="fontsize-25 fragment rounded_box white" data-fragment-index="2" align="left" style="text-indent: 40px;"> Lowest order : #np DOFs <i class="fa-regular fa-face-smile"></i></p>
+							<p class="fontsize-25 fragment rounded_box white" data-fragment-index="2" align="left" style="text-indent: 40px;"> For $k=0$: #np DOFs <i class="fa-regular fa-face-smile"></i></p>
 							<p class="fontsize-25 fragment" data-fragment-index="3" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Number of iterations </p>
 							<p class="fontsize-25 fragment rounded_box red" data-fragment-index="3" align="left" style="text-indent: 40px;"> For our example: $\approx 40$ <i class="fa-regular fa-face-frown"></i></p>
 						</div>
@@ -337,7 +337,7 @@
 					<slide-title><span slot="title">A new idea ... </span></slide-title>
 					<div class="row" style="margin-top: 16px">
 						<div class="col-50">
-							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 40px; color:red"> Vector potential </p>
+							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 40px; color:red"> <b>Vector potential</b> </p>
 							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Minimization problem </p>
 							
 							<div class="fontsize-25 fragment" data-fragment-index="0">
@@ -348,7 +348,7 @@
 						</div>
 
 						<div class="col-50">
-							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 40px; color:blue"> Scalar potential </p>
+							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 40px; color:blue"> <b>Scalar potential</b> </p>
 							<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Minimization problem </p>
 							<div class="fontsize-25 fragment" data-fragment-index="0">
 								$$\begin{alignat*}{2}
@@ -359,7 +359,7 @@
 						</div>
 					</div>
 					<!-- <p class="fontsize-25 fragment" data-fragment-index="0" align="middle" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> New mixed approach </p> -->
-					<p class="fontsize-25 fragment" data-fragment-index="1" align="middle" style="text-indent: 40px; color:magenta"> Mixed scalar potential </p>
+					<p class="fontsize-25 fragment" data-fragment-index="1" align="middle" style="text-indent: 40px; color:magenta"> <b>Mixed scalar potential</b> </p>
 					<div class="fontsize-25 fragment" data-fragment-index="1">
 						$$\begin{alignat*}{2}
 						B:=\argmin_\limits{u} \int_\Omega f(u)-H_J\cdot u\,\quad\, \text{s.t. } \div u = 0
@@ -367,11 +367,11 @@
 					</div>
 					<div class="fontsize-25 fragment" data-fragment-index="2">
 						$$\begin{alignat*}{2}
-						(B,\psi):=\argmax_\limits{\psi}\;\argmin_\limits{u} \int_\Omega f(u)- H_J \cdot u-\grad\psi \cdot u
+						(B,\psi):=\argmin_\limits{u}\;\argmax_\limits{\psi} \int_\Omega f(u)- H_J \cdot u-\grad\psi \cdot u
 						\end{alignat*}$$
 					</div>
 					<div class="row fragment" data-fragment-index="3">
-						<p class="fontsize-25" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Derivation </p>
+						<p class="fontsize-25" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Direct derivation </p>
 						<div class="col-30 fragment" data-fragment-index="3">
 							<div class="fontsize-25">
 								<table>
@@ -411,14 +411,90 @@
 
 
 
+				<!-- Mixed scalar potential, part 1 -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title> <span slot="title">A mixed scalar potential formulation</span> </slide-title>
+					<div>
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Weak formulation, assuming $n\cdot B = 0$ on $\partial\Omega$:</p>
+						<div class="fragment fade-in-then-out"  data-fragment-index="0">
+							<p class="fontsize-25" align="left" style="margin-left: 40px;"> Find $(B,\psi)\in L^2(\Omega)^3\times H^1_*(\Omega)$ such that</p>
+							<div class="row fontsize-25">
+								$$\begin{alignat*}{2}
+								(f'(B), v)-(\grad\psi,v) &= (H_J,v)\qquad &&\forall v\in L^2(\Omega)^3 \\
+								(B,\grad q) &=0 &&\forall q\in H^1_*(\Omega)
+								\end{alignat*}$$
+							</div>
+						</div>
+						<div class="fragment"  data-fragment-index="1" style="margin-top: -20px;">
+							<p class="fontsize-25" align="left" style="margin-left: 40px;"> Find $(B_h,\psi_h)\in Q_h\times V_h \subseteq L^2(\Omega)^3\times H^1_*(\Omega)$ such that</p>
+							<div class="row fontsize-25">
+								$$\begin{alignat*}{2}
+								(f'(B_h), v_h)_h-(\grad\psi_h,v_h) &= (H_J,v_h)\qquad &&\forall v_h\in Q_h \\
+								(B_h,\grad q_h) &=0 &&\forall q_h\in V_h
+								\end{alignat*}$$
+							</div>							
+							<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Here $V_h = P_{k+1}\cap H^1_*(\Omega)$ and $Q_h = P_k^3\cap L^2(\Omega)^3$</p>
+						</div>
+						<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Note : $\psi$ is approximated in the same space as for the scalar potential formulation.</p>
+						<div class="fragment" data-fragment-index="3"">
+							<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Initialize with $(B_h^0,\psi_h^0)=0$. In each newton step, solve for the update $(\delta B_h^n,\delta\psi_h^n)$ </p>
+							<div class="rounded_box red">
+								<p class="fontsize-20" align="left" style="margin-top: 0;"> Find $(\delta B_h^n,\delta \psi_h^n)\in Q_h\times V_h$ such that</p>
+								<div class="fontsize-20" style="margin-top: 0px; margin-left: 100px;">
+									$$\begin{alignat*}{2}
+									(f''(B_h^n)\delta B_h^n, v_h)_h-(\grad\delta\psi_h^n,v_h) &= -\left((f'(B_h^n), v_h)_h-(\grad\psi_h^n,v_h)-(H_J,v_h)\right)\qquad &&\forall v_h\in Q_h \\
+									(\delta B_h^n,\grad q_h) &= -(B_h^n,\grad q_h) &&\forall q_h\in V_h
+									\end{alignat*}$$
+								</div>
+							</div>
+							<!-- <p class="fontsize-25" align="left" style="margin-left: 40px;"> Here the relaxation step $\alpha^n$ is determined by Armijo backtracking.</p> -->
+							<p class="fontsize-25 fragment" data-fragment-index="3" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Number of iterations: about 20! <i class="fa-regular fa-face-smile"></i></p>
+							<p class="fontsize-25 fragment" data-fragment-index="4" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Problem : saddle point structure... how can we solve it efficiently?</p>
+						</div>
+					</div>
+				</section>
 
+
+
+
+				<!-- Mixed scalar potential, part 2 -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title> <span slot="title">A mixed scalar potential formulation</span> </slide-title>
+					<div>
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> Each Newton step has the form </p>
+						<div class="row fontsize-25">
+							$$\begin{alignat*}{2}
+								(f''(B_h^n)\delta B_h^n, v_h)_h-(\grad\delta\psi_h^n,v_h) &= \ldots \\
+								(\delta B_h^n,\grad q_h) &= \ldots
+							\end{alignat*}$$
+						</div>
+					</div>
+					<p class="fontsize-25" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> After assembly, the lowest order  </p>
+					<div class="row fontsize-25">
+						$$\begin{alignat*}{2}
+						\begin{pmatrix}
+						\ttA & -\ttB \\
+						\ttB &  \ttZ \\
+						\end{pmatrix}						
+						\begin{pmatrix}
+						\delta b^n\\
+						\delta \psi^n\\
+						\end{pmatrix}=
+						\begin{pmatrix}
+						\ttr_1\\
+						\ttr_2\\
+						\end{pmatrix}
+						\end{alignat*}$$
+					<img src="assets/full_matrix.png" width="350" height="auto"/>
+					<img src="assets/reduced_matrix.png" width="350" height="auto"/>
+				</section>
 
 
 
 
 
 				<!-- Slide X -->
-				<section data-transition="fade" data-transition-speed="fast">
+				<!-- <section data-transition="fade" data-transition-speed="fast">
 					<slide-title> <span slot="title">Motivation</span> </slide-title>
 					
 					<p class="fontsize-25" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> This is a line with a caret in front.  </p>
@@ -437,7 +513,7 @@
 								<td>Contraction</td>
 						</table>
 					</div>
-				</section>
+				</section> -->
 			</div>
 		</div>
 
@@ -503,7 +579,11 @@
 						Curl : "\\operatorname{Curl}",
 						RR: "\\mathbb{R}",
 						N: "\\mathcal{N}",
-						bold: ["\\boldsymbol{#1}", 1]
+						bold: ["\\boldsymbol{#1}", 1],
+						ttA : "\\mathtt{A}",
+						ttB : "\\mathtt{B}",
+						ttZ : "\\mathtt{0}",
+						ttr : "\\mathtt{r}"
 					},
 				},
 				chtml: {
