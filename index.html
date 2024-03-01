@@ -28,7 +28,7 @@
 				<section data-transition="fade" data-transition-speed="fast">
 					<div class="title" style="margin-top: 50px"> A scalar potential approach for magnetostatics <br> avoiding the coenergy </div>
 
-					<div class="fontsize-30" style="margin-top: 75px"> <b>Bogdan Radu</b>, Felix Engertsberger, Herbert Egger </div>
+					<div class="fontsize-30" style="margin-top: 75px"> Herbert Egger, Felix Engertsberger, <b><u>Bogdan Radu</u></b> </div>
 					<div class="fontsize-20" style="margin-top: 25px"> Johann Radon Institute for Computational and Applied Mathematics (RICAM) </div>
 					<div class="fontsize-20"> Austrian Academy of Sciences (ÖAW) Linz, Austria </div>
 
@@ -70,7 +70,14 @@
 					</div>
 				</section>
 
-				<!-- Slide 2 -->
+				<!-- ToC -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title><span slot="title">Table of contents</span></slide-title>
+					<p class="fontsize-32" align="left" style="text-indent: 10px; margin-top: 60px;">$\bullet$ Maxwell's equations for magnetostatics</p>
+					<p class="fontsize-32" align="left" style="text-indent: 10px; margin-top: 60px">$\bullet$ <span style="color: red;">Vector potential</span> formulation</p>
+					<p class="fontsize-32" align="left" style="text-indent: 10px; margin-top: 60px">$\bullet$ <span style="color: blue;">Scalar potential</span> formulation</p>
+					<p class="fontsize-32" align="left" style="text-indent: 10px; margin-top: 60px">$\bullet$ A new <span style="color: magenta;">"mixed" scalar potential</span> formulation</p>
+				</section>
 
 				<!-- Maxwell's equations -->
 				<section data-transition="fade" data-transition-speed="fast">
@@ -104,7 +111,7 @@
 							</div>
 						</div>
 					</div>
-					<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Why use one over the other? Efficiency, convenience $\ldots$ </p>
+					<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Why use one over the other? Efficiency, accuracy, access to solvers, convenience $\ldots$ </p>
 				</section>
 
 				<!-- Vector potential formulation, part1 -->
@@ -152,7 +159,7 @@
 
 					<div class="fragment" data-fragment-index="3" style="margin-top: 50px;">
 						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Weak formulation, assuming $n\times H = n\times f'(\curl A) = 0$ on $\partial\Omega$:</p>
-						<p class="fontsize-25" align="left" style="margin-left: 40px;"> Find $A\in H^*(\curl,\Omega) = \{u\in L^2(\Omega)^3\;|\; \curl u\in L^2(\Omega)^3,\, \div u = 0\}$ such that</p>
+						<p class="fontsize-25" align="left" style="margin-left: 40px;"> Find $A\in H^*(\curl,\Omega) = \{u\in L^2(\Omega)^3\;|\; \curl u\in L^2(\Omega)^3 \textcolor{red}{\text{  + gauging}}\}$ such that</p>
 						<div class="row fontsize-25" style="margin-top: 30px;">
 							$$\begin{alignat*}{2}
 							(f'(\curl A), \curl v) = (J,v)\qquad\forall v\in H^*(\curl,\Omega)
@@ -195,8 +202,10 @@
 						</div>
 						<p class="fontsize-25" align="left" style="margin-left: 40px;"> Here the relaxation step $\alpha^n$ is determined by Armijo backtracking.</p>
 					</div>
-					<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Number of iterations depends <b><u>only</u></b> on the nonlinearity $f$ </p>
-					<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> The same holds on the discrete level, for any conforming subspace $V_h\subseteq H^*(\curl,\Omega)$ </p>
+					<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> The same holds on the discrete level, for any conforming subspace $V_h\subseteq H^*(\curl,\Omega)$ </p>
+					<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> 
+						Number of iterations depends <b><u>only</u></b> on the nonlinearity $f$ &nbsp; <span style="color: red;">(Felix' Talk Thursday, H3)</span> 
+					</p>
 				</section>
 
 
@@ -291,8 +300,10 @@
 						</div>
 						<p class="fontsize-25" align="left" style="margin-left: 40px;"> Here the relaxation step $\alpha^n$ is determined by Armijo backtracking.</p>
 					</div>
-					<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Number of iterations depends <b><u>only</u></b> on the nonlinearity $g$ </p>
-					<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> The same holds on the discrete level, for any conforming subspace $W_h\subseteq H^1_*(\Omega)$ </p>
+					<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> The same holds on the discrete level, for any conforming subspace $W_h\subseteq H^1_*(\Omega)$ </p>
+					<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> 
+						Number of iterations depends <b><u>only</u></b> on the nonlinearity $g$ &nbsp; <span style="color: red;">(Felix' Talk Thursday, H3)</span> 
+					</p>
 				</section>
 
 
@@ -338,6 +349,29 @@
 					<!-- <p class="fontsize-30 fragment" data-fragment-index="4" align="center" style="text-indent: 10px;"> Can we achieve two <i class="fa-regular fa-face-smile"></i> ?</p> -->
 				</section>
 
+				
+				
+				<!-- Comparison -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title><span slot="title">Comparison</span></slide-title>
+					
+					<div class="row" style="margin-top: 16px">
+						<div class="col-50">
+							<p class="fontsize-25" align="left" style="text-indent: 40px; color:red"> <b>Vector potential</b> </p>
+							<img src="assets/vec_plot_marked.PNG" width="350" height="auto"/>
+						</div>
+
+						<div class="col-50">
+							<p class="fontsize-25" align="left" style="text-indent: 40px; color:blue"> <b>Scalar potential</b> </p>
+							<img style="margin-top: 18px;" src="assets/scalar_pot_marked-transformed.PNG" width="350" height="auto"/>
+						</div>
+					</div>
+					<p class="fontsize-25 fragment" data-fragment-index="3" align="left" style="text-indent: 10px;margin-top: 40px;"> 
+						<i class="fa fa-caret-right"></i> Many newton directions rejected for the scalar potential formulation! Way more relaxation steps are necessary in comparison to the vector potential formulation! 
+					</p>
+				</section>
+
+
 				<!-- Comparison -->
 				<section data-transition="fade" data-transition-speed="fast">
 					<slide-title><span slot="title">Comparison</span></slide-title>
@@ -361,6 +395,7 @@
 					<p class="fontsize-25 fragment" data-fragment-index="1"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Fact: Vector-potential formulation is more costly than the scalar-potential.</p>
 					<p class="fontsize-25 fragment" data-fragment-index="2"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Question: Can we get the best of both worlds, i.e. having to solve small systems <u>and</u> have a low number of iterations?</p>
 				</section>
+
 
 				<!-- A new idea ... -->
 				<section data-transition="fade" data-transition-speed="fast">
@@ -439,8 +474,6 @@
 					</div>
 				</section>
 
-
-
 				<!-- Mixed scalar potential, part 1 -->
 				<section data-transition="fade" data-transition-speed="fast">
 					<slide-title> <span slot="title">A mixed scalar potential formulation</span> </slide-title>
@@ -478,8 +511,8 @@
 								</div>
 							</div>
 							<!-- <p class="fontsize-25" align="left" style="margin-left: 40px;"> Here the relaxation step $\alpha^n$ is determined by Armijo backtracking.</p> -->
-							<p class="fontsize-25 fragment" data-fragment-index="3" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Number of iterations: about 20! <i class="fa-regular fa-face-smile"></i></p>
-							<p class="fontsize-25 fragment" data-fragment-index="4" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Problem : saddle point structure... how can we solve it efficiently?</p>
+							<p class="fontsize-25 fragment" data-fragment-index="4" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Number of iterations: about 20! <i class="fa-regular fa-face-smile"></i></p>
+							<p class="fontsize-25 fragment" data-fragment-index="5" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Problem : saddle point structure... how can we solve it efficiently?</p>
 						</div>
 					</div>
 				</section>
@@ -571,14 +604,38 @@
 						</div>
 					</div>
 					<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> These are to be understood weakly, in $H^{-1}$.</p>
+					<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> While the Newton directions are different, they both converge to the <b><u>same</u></b> solution!</p>
+					<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> Slight overhead by having to invert $\ttA$ and "composing" the matrix $\ttB^\top\ttA^{-1}\ttB$</p>
 				</section>
 
+				
+				
+				
+				<!-- Comparison -->
+				<section data-transition="fade" data-transition-speed="fast">
+					<slide-title><span slot="title">Comparison</span></slide-title>
+					
+					<div class="row" style="margin-top: 0px">
+						<div class="col-50">
+							<p class="fontsize-25" align="left" style="text-indent: 40px; color:red"> <b>Vector potential</b> </p>
+							<img src="assets/vec_plot_marked.PNG" style="margin-top: 0px;" width="350" height="auto"/>
+							<div class="fragment" data-fragment-index="0" >
+								<p class="fontsize-25" align="left" style="text-indent: 40px; color:magenta"> <b>Mixed scalar potential</b> </p>
+								<img src="assets/mixed_pot_marked.PNG" style="margin-top: 0px;" width="350" height="auto"/>
+							</div>
+						</div>
+
+						<div class="col-50">
+							<p class="fontsize-25" align="left" style="text-indent: 40px; color:blue"> <b>Scalar potential</b> </p>
+							<img style="margin-top: 0px;" src="assets/scalar_pot_marked-transformed.PNG" width="350" height="auto"/>
+						</div>
+					</div>
+				</section>
 
 				<!-- Mixed scalar potential, part 3 -->
 				<section data-transition="fade" data-transition-speed="fast">
-					<slide-title> <span slot="title">Numerical experiment</span> </slide-title>
-					<p class="fontsize-25" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> TODO : graph mit Vergleich der Iterationen, Zeiten ...!</p>
-					<p class="fontsize-25" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> Summary </p>
+					<slide-title> <span slot="title">Summary</span> </slide-title>
+					<p class="fontsize-25" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> todo</p>
 				</section>
 
 
