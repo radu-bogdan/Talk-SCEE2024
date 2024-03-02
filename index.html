@@ -73,10 +73,14 @@
 				<!-- ToC -->
 				<section data-transition="fade" data-transition-speed="fast">
 					<slide-title><span slot="title">Table of contents</span></slide-title>
-					<p class="fontsize-32" align="left" style="text-indent: 10px; margin-top: 60px;">$\bullet$ Maxwell's equations for magnetostatics</p>
-					<p class="fontsize-32" align="left" style="text-indent: 10px; margin-top: 60px">$\bullet$ <span style="color: red;">Vector potential</span> formulation</p>
-					<p class="fontsize-32" align="left" style="text-indent: 10px; margin-top: 60px">$\bullet$ <span style="color: blue;">Scalar potential</span> formulation</p>
-					<p class="fontsize-32" align="left" style="text-indent: 10px; margin-top: 60px">$\bullet$ A new <span style="color: magenta;">"mixed" scalar potential</span> formulation</p>
+					<div style="margin-left: 40px;">
+					<p class="fontsize-28" align="left" style="text-indent: 10px; margin-top: 60px;">$\bullet$ Motivation <i class="fa fa-check"></i></p>
+					<p class="fontsize-28" align="left" style="text-indent: 10px; margin-top: 60px;">$\bullet$ Maxwell's equations for magnetostatics</p>
+					<p class="fontsize-28" align="left" style="text-indent: 10px; margin-top: 60px">$\bullet$ <span style="color: red;">Vector potential</span> formulation</p>
+					<p class="fontsize-28" align="left" style="text-indent: 10px; margin-top: 60px">$\bullet$ <span style="color: blue;">Scalar potential</span> formulation</p>
+					<p class="fontsize-28" align="left" style="text-indent: 10px; margin-top: 60px">$\bullet$ A new <span style="color: magenta;">"mixed" scalar potential</span> formulation</p>
+					<p class="fontsize-28" align="left" style="text-indent: 10px; margin-top: 60px">$\bullet$ <span">Outlook</span></p>
+					</div>
 				</section>
 
 				<!-- Maxwell's equations -->
@@ -358,19 +362,19 @@
 					<div class="row" style="margin-top: 16px">
 						<div class="col-50">
 							<p class="fontsize-25" align="left" style="text-indent: 40px; color:red"> <b>Vector potential</b> </p>
-							<img src="assets/vec_plot_marked.PNG" width="350" height="auto"/>
+							<img style="margin-top: -10px"src="assets/vec_plot_marked.PNG" width="600" height="auto" />
 						</div>
 
 						<div class="col-50">
 							<p class="fontsize-25" align="left" style="text-indent: 40px; color:blue"> <b>Scalar potential</b> </p>
-							<img style="margin-top: 18px;" src="assets/scalar_pot_marked-transformed.PNG" width="350" height="auto"/>
+							<img style="margin-top: -10px;" src="assets/scalar_pot_marked.PNG" width="400" height="auto" />
 						</div>
 					</div>
-					<p class="fontsize-25 fragment" data-fragment-index="3" align="left" style="text-indent: 10px;margin-top: 40px;"> 
-						<i class="fa fa-caret-right"></i> Many newton directions rejected for the scalar potential formulation! Way more relaxation steps are necessary in comparison to the vector potential formulation! 
+					<p class="fontsize-25 fragment" data-fragment-index="3" align="left" style="text-indent: 10px;margin-top: 20px;"> 
+						<i class="fa fa-caret-right"></i> Way more relaxation steps are necessary in comparison to the vector potential formulation! 
 					</p>
 				</section>
-
+				
 
 				<!-- Comparison -->
 				<section data-transition="fade" data-transition-speed="fast">
@@ -618,16 +622,16 @@
 					<div class="row" style="margin-top: 0px">
 						<div class="col-50">
 							<p class="fontsize-25" align="left" style="text-indent: 40px; color:red"> <b>Vector potential</b> </p>
-							<img src="assets/vec_plot_marked.PNG" style="margin-top: 0px;" width="350" height="auto"/>
+							<img src="assets/vec_plot_marked.PNG" style="margin-top: 0px;" width="450" height="auto"/>
 							<div class="fragment" data-fragment-index="0" >
 								<p class="fontsize-25" align="left" style="text-indent: 40px; color:magenta"> <b>Mixed scalar potential</b> </p>
-								<img src="assets/mixed_pot_marked.PNG" style="margin-top: 0px;" width="350" height="auto"/>
+								<img src="assets/mixed_pot_marked.PNG" style="margin-top: 0px;" width="450" height="auto"/>
 							</div>
 						</div>
 
 						<div class="col-50">
 							<p class="fontsize-25" align="left" style="text-indent: 40px; color:blue"> <b>Scalar potential</b> </p>
-							<img style="margin-top: 0px;" src="assets/scalar_pot_marked-transformed.PNG" width="350" height="auto"/>
+							<img style="margin-top: 0px;" src="assets/scalar_pot_marked.PNG" width="400" height="auto"/>
 						</div>
 					</div>
 				</section>
@@ -698,7 +702,8 @@
 			Reveal.initialize({
 				// Display presentation control arrows
   				controls: false,
-				slideNumber: 'c/t',
+				// slideNumber: 'c/t',
+				slideNumber: "c/t",
 				hash: true,
 				center: false,
 				width: 960,
