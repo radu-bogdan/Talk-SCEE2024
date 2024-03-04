@@ -392,9 +392,16 @@
 						</div>
 					</div> -->
 					<p class="fontsize-25"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> The different number of iterations is a well documented fact: </p>
-					<p class="fontsize-18 citation" style="text-indent: 40px;">- Dular et. al. (2021). Finite-Element Formulations for Systems With High-Temperature Superconductors</p>
-					<p class="fontsize-18 citation" style="text-indent: 40px;">- Kovács, Kuczmann (2011). Solution of the TEAM workshop problem No. 7 by the Finite Element Method</p>
-					<img src="assets/zitat.png" width="400" height="auto"/>
+					<div class="row" style="margin-top: 1px">
+						<div class="col-50">
+						<p class="fontsize-18 citation" style="text-indent: 40px;">- Kovács, Kuczmann (2011). Solution of the TEAM workshop problem No. 7 by the Finite Element Method</p>
+						<img src="assets/zitat.png" width="400" height="auto"/>
+						</div>
+						<div class="col-50">
+						<p class="fontsize-18 citation" style="text-indent: 40px;">- Dular et. al. (2021). Finite-Element Formulations for Systems With High-Temperature Superconductors</p>
+						<img src="assets/dular_snippet2.png" width="400" height="auto"/>
+						</div>
+					</div>
 					<p class="fontsize-25 fragment" data-fragment-index="0"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Hypothesis: In general, for ferromagnetic materials, the <span style="color:blue">coenergy-based</span> formulations require more iteration steps than the <span style="color:red">energy-based</span> formulations </p>
 					<p class="fontsize-25 fragment" data-fragment-index="1"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Fact: Vector-potential formulation is more costly than the scalar-potential.</p>
 					<p class="fontsize-25 fragment" data-fragment-index="2"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Question: Can we get the best of both worlds, i.e. having to solve small systems <u>and</u> have a low number of iterations?</p>
@@ -639,7 +646,18 @@
 				<!-- Mixed scalar potential, part 3 -->
 				<section data-transition="fade" data-transition-speed="fast">
 					<slide-title> <span slot="title">Summary</span> </slide-title>
-					<p class="fontsize-25" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> todo</p>
+					<p class="fontsize-25"  align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> We have proposed a new <span style="color: magenta;"> mixed scalar potential</span> formulation</p>
+					<p class="fontsize-25"  align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> It has the same computational complexity as the standard <span style="color: blue;"> scalar potential</span> formulation</p>
+					<p class="fontsize-25"  align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> It has a similar number of iterations as the <span style="color: red;"> vector potential</span> formulation</p>
+
+					<p class="fontsize-25" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> This result heavily depends on the "shape" of the nonlinearity. It holds for ferromagnetic materials, but not for superconductors.</p>
+
+
+					<div class="fontsize-50 fragment" data-fragment-index="0"  style="margin-top: 75px; font-size: 50px;"> <b>Thank You</b> </div>
+					<img class="fragment" data-fragment-index="0" src="assets/oeaw_ricam_logo.svg" alt="logo_RICAM_ÖAW" style="margin-top: 30px; vertical-align: middle; width: 250px;">
+					<div class="fontsize-20 fragment" data-fragment-index="0" style="margin-top: 5px"> Johann Radon Institute for Computational and Applied Mathematics (RICAM) </div>
+					<div class="fontsize-20 fragment" data-fragment-index="0" > Austrian Academy of Sciences (ÖAW) Linz, Austria </div>
+
 				</section>
 
 
@@ -740,7 +758,7 @@
 						ttr : "\\mathtt{r}"
 					},
 				},
-				chtml: {
+				svg: {
 					scale: 1,                      // global scaling factor for all expressions
 					minScale: 1,                  // smallest scaling factor to use					
 					mtextInheritFont: false,       // true to make mtext elements use surrounding font
