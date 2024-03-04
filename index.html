@@ -98,7 +98,7 @@
 					<div class="fragment" data-fragment-index="1" style="margin-top: 50px;">
 						<p class="fontsize-25"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Let $\Omega\subseteq\mathbb{R}^d$. Nonlinear material law</p>
 						<div class="fontsize-25">
-							$$H = \textcolor{red}{f'(B)} := \grad_B f(B) \qquad\text{ or }\qquad B = \textcolor{blue}{g'(H)}:=\grad_H g(H)$$
+							$$H = {\color{red}{f'(B)}} := \grad_B f(B) \qquad\text{ or }\qquad B = \textcolor{blue}{g'(H)}:=\grad_H g(H)$$
 						</div>
 						<p class="fontsize-25" align="left" style="text-indent: 46px;">Here $\textcolor{red}{f}$ and $\textcolor{blue}{g}$ are the energy/coenergy densities.</p>
 					</div>
@@ -719,7 +719,9 @@
 
 		<script>
 			window.MathJax = {
+				loader: {load: ['[tex]/color']},
 				tex: {
+					packages: {'[+]': ['color']},
 					inlineMath: [['$', '$'], ['\\(', '\\)']],
 					macros: {
 						argmin : "\\operatorname{argmin}",
