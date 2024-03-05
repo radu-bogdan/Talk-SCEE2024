@@ -96,11 +96,11 @@
 					</div>
 
 					<div class="fragment" data-fragment-index="1" style="margin-top: 50px;">
-						<p class="fontsize-25"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Let $\Omega\subseteq\mathbb{R}^d$. Nonlinear material law</p>
+						<p class="fontsize-25"  align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> Nonlinear material law</p>
 						<div class="fontsize-25">
 							$$H = {\color{red}{f'(B)}} := \grad_B f(B) \qquad\text{ or }\qquad B = \textcolor{blue}{g'(H)}:=\grad_H g(H)$$
 						</div>
-						<p class="fontsize-25" align="left" style="text-indent: 46px;">Here $\textcolor{red}{f}$ and $\textcolor{blue}{g}$ are the energy/coenergy densities.</p>
+						<p class="fontsize-25" align="left" style="text-indent: 46px;">Here $\textcolor{red}{f}$ and $\textcolor{blue}{g}$ are the energy and coenergy density functions.</p>
 					</div>
 
 
@@ -194,7 +194,8 @@
 						</div>
 					</div>
 					<div class="fragment" data-fragment-index="1" style="margin-top: 50px;">
-						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Initialize with $A^0=0$. Newton step: $A^{n+1} = A^n + \alpha^n\; \delta A^n$, where $\delta A^n$ solves </p>
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> How do we solve the nonlinear problem?</p>
+						<p class="fontsize-25" align="left" style="margin-left: 43px;"> Initialize with $A^0=0$. Newton step: $A^{n+1} = A^n + \alpha^n\; \delta A^n$, where $\delta A^n$ solves </p>
 
 						<div class="rounded_box red">
 							<p class="fontsize-20" align="left" style="margin-top: 0;"> Find $\delta A^n\in H^*(\curl,\Omega)$ such that</p>
@@ -279,7 +280,7 @@
 
 				<!-- Scalar potential formulation, part2 -->
 				<section data-transition="fade" data-transition-speed="fast">
-					<slide-title><span slot="title">Vector potential formulation</span></slide-title>
+					<slide-title><span slot="title">Scalar potential formulation</span></slide-title>
 					<div style="margin-top: 20px;">
 						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Find $\psi\in H^1_*(\Omega)$ such that $(g'(H_J + \grad\psi), \grad v) = 0$ for all $v\in H^1_*(\Omega)$.</p>
 					</div>
@@ -292,7 +293,9 @@
 						</div>
 					</div>
 					<div class="fragment" data-fragment-index="1" style="margin-top: 50px;">
-						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Initialize with $\psi^0=0$. Newton step: $\psi^{n+1} = \psi^n + \alpha^n\; \delta \psi^n$, where $\delta \psi^n$ solves </p>
+
+						<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> How do we solve the nonlinear problem?</p>
+						<p class="fontsize-25" align="left" style="margin-left: 43px;"> Initialize with $\psi^0=0$. Newton step: $\psi^{n+1} = \psi^n + \alpha^n\; \delta \psi^n$, where $\delta \psi^n$ solves </p>
 
 						<div class="rounded_box blue">
 							<p class="fontsize-20" align="left" style="margin-top: 0;"> Find $\delta \psi^n\in H^1_*(\Omega)$ such that</p>
@@ -321,7 +324,7 @@
 							<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> (Discrete) Newton step: </p>
 							<div class="fontsize-25 fragment" data-fragment-index="1">
 								$$\begin{alignat*}{2}
-								(f''(\curl A^n_\textcolor{red}{h})\curl \delta A^n_\textcolor{red}{h}, \curl v_\textcolor{red}{h}) = \ldots
+								(f''(\curl A^n_\textcolor{red}{h})\curl \delta A^n_\textcolor{red}{h}, \curl v_\textcolor{red}{h})_h = \ldots
 								\end{alignat*}$$
 							</div>
 							<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 40px;"> where $V_h \subseteq H^*(\curl,\Omega)$ <b><u>Gauging!</u></b></p>
@@ -338,7 +341,7 @@
 							<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 10px;"> <i class="fa fa-caret-right"></i> (Discrete) Newton step: </p>
 							<div class="fontsize-25 fragment" data-fragment-index="1">
 								$$\begin{alignat*}{2}
-								(g''(H_J+\grad\psi^n_\textcolor{red}{h})\grad \delta\psi_\textcolor{red}{h}^n, \grad v_\textcolor{red}{h}) = \ldots
+								(g''(H_J+\grad\psi^n_\textcolor{red}{h})\grad \delta\psi_\textcolor{red}{h}^n, \grad v_\textcolor{red}{h})_h = \ldots
 								\end{alignat*}$$
 							</div>
 							<!-- <p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="text-indent: 40px;"> where $V_h = P_{k+1}$</p> -->
@@ -371,7 +374,7 @@
 						</div>
 					</div>
 					<p class="fontsize-25 fragment" data-fragment-index="3" align="left" style="text-indent: 10px;margin-top: 20px;"> 
-						<i class="fa fa-caret-right"></i> Way more relaxation steps are necessary in comparison to the vector potential formulation! 
+						<i class="fa fa-caret-right"></i> A lot more relaxation steps are necessary for the scalar potential formulation in comparison to the vector potential formulation! 
 					</p>
 				</section>
 				
@@ -443,7 +446,7 @@
 					</div>
 					<div class="fontsize-25 fragment" data-fragment-index="2">
 						$$\begin{alignat*}{2}
-						(B,\psi):=\argmin_\limits{u}\;\argmax_\limits{\psi} \int_\Omega f(u)- H_J \cdot u-\grad\psi \cdot u
+						(B,\psi):=\argmin_\limits{u}\;\argmax_\limits{\phi} \int_\Omega f(u)- H_J \cdot u-\grad\phi \cdot u
 						\end{alignat*}$$
 					</div>
 					<div class="row fragment" data-fragment-index="3">
@@ -511,7 +514,7 @@
 						</div>
 						<p class="fontsize-25 fragment" data-fragment-index="2" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Note : $\psi$ is approximated in the same space as for the scalar potential formulation.</p>
 						<div class="fragment" data-fragment-index="3"">
-							<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Initialize with $(B_h^0,\psi_h^0)=0$. In each newton step, solve for the update $(\delta B_h^n,\delta\psi_h^n)$ </p>
+							<p class="fontsize-25" align="left" style="margin-left: 20px;"> <i class="fa fa-caret-right"></i> Initialize with $(B_h^0,\psi_h^0)=0$. In each Newton step, solve for the update $(\delta B_h^n,\delta\psi_h^n)$ </p>
 							<div class="rounded_box red">
 								<p class="fontsize-20" align="left" style="margin-top: 0;"> Find $(\delta B_h^n,\delta \psi_h^n)\in Q_h\times V_h$ such that</p>
 								<div class="fontsize-20" style="margin-top: 0px; margin-left: 100px;">
@@ -614,8 +617,8 @@
 							</div>
 						</div>
 					</div>
-					<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> These are to be understood weakly, in $H^{-1}$.</p>
-					<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> While the Newton directions are different, they both converge to the <b><u>same</u></b> solution!</p>
+					<p class="fontsize-25 fragment" data-fragment-index="0" align="left" style="margin-left: 41px;"> These are to be understood weakly.</p>
+					<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="margin-left: 20px; margin-top: 40px;"><i class="fa fa-caret-right"></i> While the Newton directions are different, they both converge to the <b><u>same</u></b> solution!</p>
 					<p class="fontsize-25 fragment" data-fragment-index="1" align="left" style="margin-left: 20px;"><i class="fa fa-caret-right"></i> Slight overhead by having to invert $\ttA$ and "composing" the matrix $\ttB^\top\ttA^{-1}\ttB$</p>
 				</section>
 
