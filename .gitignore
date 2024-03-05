@@ -8,4 +8,5 @@ out/
 log/*.log
 tmp/**
 node_modules/
+MathJax-demos-node/
 .sass-cache
